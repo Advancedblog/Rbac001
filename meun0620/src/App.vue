@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/about">菜单列表</router-link>
+      <router-link to="/hom">导航</router-link>
+      <router-link to="/log">登录</router-link>
     </nav>
     <router-view/>
   </div>

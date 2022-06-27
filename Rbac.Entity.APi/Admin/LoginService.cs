@@ -40,14 +40,13 @@ namespace Admin
         {
             var AdminName = administratorsInt.GetKeyQuery(s => s.AdmName == dto.AdmName.Trim());
             //ToLower()  把字母字符转换成小写, Trim 首尾两端的空格移除
-            var Adminpwd = administratorsInt.GetKeyQuery(s => s.AdmPwd.ToLower() == Md5(dto.AdmPwd.Trim().ToLower()));
             if (AdminName==null)//判断 数据库是否有此  账号
             {
-                return new Toenk { ErSum = 0, ErSuccess = "账号不正确" };
+                return new Toenk { ErSum = 1, ErSuccess = "账号不正确" };
             }
-            if (Adminpwd!=null) //判断是否  跟数据库密码一直
+            if (AdminName.AdmPwd.ToLower()!=Md5(dto.AdmPwd.Trim().ToLower())) //判断是否  跟数据库密码一直
             {
-                return new Toenk { ErSum = -1, ErSuccess = "密码不正确" };
+                return new Toenk { ErSum = 2, ErSuccess = "密码不正确" };
 
             }
             //Jwt  有；表头，签名，负载
@@ -88,7 +87,7 @@ namespace Admin
             //成功后返回
             return new Toenk
             {
-                ErSum = 1,
+                ErSum = 0,
                 ErSuccess = "登录成功",
                 Tok = jwt //返回令牌
             };

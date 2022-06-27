@@ -18,6 +18,12 @@
             <param name="admin"></param>
             <returns></returns>
         </member>
+        <member name="M:Rbac.MeunApi.Controllers.LoginServerController.GetRandom">
+            <summary>
+            验证码
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Rbac.MeunApi.Controllers.RbacServerController.GetAll">
             <summary>
             菜单查询

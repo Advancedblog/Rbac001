@@ -8,7 +8,8 @@ using System.Collections.Generic;
 namespace Rbac.MeunApi.Controllers
 {
     [Route("api/[controller]/[action]")]
-    [ApiController][Authorize]
+    [ApiController]
+    [Authorize]
     public class RbacServerController : ControllerBase
     {
         public RbacServerController(Iservic2 servicMeunRole)

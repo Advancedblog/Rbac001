@@ -1,6 +1,7 @@
 ﻿using Admin;
 using Admin.Dto;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,12 +9,12 @@ namespace Rbac.MeunApi.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class LoginServerController : ControllerBase/*<ILoginService, AdminDto, RegisterDto>*/
+    public class LoginServerController : ControllerBase
 
     {
         private readonly ILoginService login;
 
-        public LoginServerController(ILoginService login)/*:base(login)*/
+        public LoginServerController(ILoginService login)
         {
             this.login = login;
         }
@@ -38,5 +39,18 @@ namespace Rbac.MeunApi.Controllers
         {
             return login.Register(admin);
         }
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public int GetRandom()
+        {
+            Random ran = new Random();
+            int sum = ran.Next(10000, 99999);
+
+            return sum;
+        }
+
     }
 }

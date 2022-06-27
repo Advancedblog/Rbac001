@@ -10,11 +10,7 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
+  
   {
     path: '/Meunadd',
     name: '菜单新增',
@@ -29,7 +25,20 @@ const routes = [
     path: '/Update',
     name: '菜单编辑2',
     component: () => import(/* webpackChunkName: "about" */ '../views/Update.vue')
+  },{
+    path: '/log',
+    name: '登录操作',
+    component: () => import(/* webpackChunkName: "about" */ '../views/LoginRbac/Login.vue')
+  },
+  {
+    path: '/hom',
+    name: '导航',
+    component: () => import(/* webpackChunkName: "about" */ '../views/RbacMeunView/RbacHome.vue'),
+    children:[
+      { path: '/about', component: () => import( '../views/AboutView.vue')},
+    ]
   }
+
 ]
 
 const router = new VueRouter({

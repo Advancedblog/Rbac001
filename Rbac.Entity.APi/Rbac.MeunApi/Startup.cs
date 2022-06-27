@@ -106,7 +106,7 @@ namespace Rbac.MeunApi
         );
             #endregion
             //注册
-            services.AddAutoMapper(Assembly.Load("AutomappperConfig"));
+            services.AddAutoMapper(Assembly.Load("AutomappperConfig")); //注册 AutoMapper 
             services.AddScoped<Iservic2, servic2>();
             services.AddScoped<IMIservic, MIservic>();
             services.AddScoped<IAdministratorsIntInterface, AdministratorsIntInterface>();
@@ -128,13 +128,9 @@ namespace Rbac.MeunApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
             
-            app.UseAuthorization();
-
             //认证
             app.UseAuthentication();
-
             //授权
             app.UseAuthorization();
 
