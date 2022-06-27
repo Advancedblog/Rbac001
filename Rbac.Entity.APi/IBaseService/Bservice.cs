@@ -1,0 +1,41 @@
+﻿using AutoMapper;
+using Rbac.IRepository;
+using System;
+using System.Collections.Generic;
+
+namespace IBaseService
+{
+    public class Bservice <TCURDDto, TDto> : IBservice<TCURDDto, TDto> where TCURDDto : class, new() where TDto : class, new()
+    {
+        private readonly IRepository<TCURDDto, int> repository;
+        private readonly IMapper mapper;
+
+        public Bservice(IRepository<TCURDDto, int> repository, IMapper mapper) //Miaapper 用于执行映射的配置提供程序
+        {
+            this.repository = repository;
+            this.mapper = mapper;
+        }
+
+        public bool GetAdd(TDto dto)
+        {
+            //MAP执行从源对象到新目标对象的映射。来源
+            //类型是从源对象推断出来的
+            return repository.GetAdd(mapper.Map<TCURDDto>(dto));
+        }
+
+        public bool GetDelete(int id)
+        {
+            return repository.GetDelete(id);
+        }
+
+        public List<TDto> GetQuery()
+        {
+            return mapper.Map<List<TDto>>(repository.GetQuery());
+        }
+
+        public bool GetUpdate(TDto dto)
+        {
+            return repository.GetUpdate(mapper.Map<TCURDDto>(dto));
+        }
+    }
+}

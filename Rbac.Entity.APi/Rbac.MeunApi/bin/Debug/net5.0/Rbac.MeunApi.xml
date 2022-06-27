@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rbac.MeunApi</name>
+    </assembly>
+    <members>
+        <member name="M:Rbac.MeunApi.Controllers.LoginServerController.GetLogin(Admin.Dto.AdminDto)">
+            <summary>
+            Login
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rbac.MeunApi.Controllers.LoginServerController.Register(Admin.Dto.RegisterDto)">
+            <summary>
+            注册
+            </summary>
+            <param name="admin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rbac.MeunApi.Controllers.RbacServerController.GetAll">
+            <summary>
+            菜单查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Rbac.MeunApi.Controllers.RbacServerController.AddDtos">
+            <summary>
+            添加 下拉框查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Rbac.MeunApi.Controllers.RbacServerController.GetMeunAdd(Rbac.Iservic.MeunAddDto)">
+            <summary>
+            添加 菜单
+            </summary>
+            <param name="meun"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rbac.MeunApi.Controllers.RbacServerController.GetMeunUpdate(Rbac.Iservic.MeunAddDto)">
+            <summary>
+            编辑 菜单数据
+            </summary>
+            <param name="updDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rbac.MeunApi.Controllers.ServercurdController.GetRomre(System.Int32)">
+            <summary>
+            菜单 删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

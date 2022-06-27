@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rbac.Entity\Rbac.Entity.csproj" />
+    <ProjectReference Include="..\Rbac.IServicMeunRole\Rbac.IServicMeunRole.csproj" />
+    <ProjectReference Include="..\Rbac.MyDbcontextEF\Rbac.MyDbcontextEF.csproj" />
+  </ItemGroup>
+
+</Project>
