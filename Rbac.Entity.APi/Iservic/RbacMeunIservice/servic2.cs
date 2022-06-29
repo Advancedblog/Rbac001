@@ -111,5 +111,10 @@ namespace Rbac.Iservic
             };
             return iservic.GetMeunPut(upd);
         }
+
+        public List<Meun> GetMeunList()
+        {
+          return  iservic.GetAll().ToList();
+        }
     }
 }

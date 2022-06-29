@@ -9,7 +9,7 @@ import axios from 'axios';
 // 创建实例后修改默认值
 Vue.prototype.$refs = axios
 //axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem("tok")}`;
-axios.defaults.headers.common['Authorization'] = `bearer ${localStorage.getItem('tok')}`;
+axios.defaults.headers.common['Authorization'] =`bearer ${localStorage.getItem('tok')}`;
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

@@ -1,5 +1,6 @@
 ﻿
 using Admin.Dto;
+using Admin.Login.pagestratorsIntInterfaceFile;
 using AutoMapper;
 using IBaseService;
 using IdentityModel;
@@ -23,13 +24,15 @@ namespace Admin
         private readonly IAdministratorsIntInterface administratorsInt;
         private readonly IMapper mapper;
         private readonly IConfiguration configuration;
+        //private readonly IpagestratorsIntInterface ipagestratorsInt;
 
-        public LoginService(IAdministratorsIntInterface administratorsInt, IMapper mapper, IConfiguration configuration)
+        public LoginService(IAdministratorsIntInterface administratorsInt, IMapper mapper, IConfiguration configuration/*, IpagestratorsIntInterface ipagestratorsInt*/)
             : base(administratorsInt, mapper)
         {
             this.administratorsInt = administratorsInt;
             this.mapper = mapper;
             this.configuration = configuration;
+            //this.ipagestratorsInt = ipagestratorsInt;
         }
         /// <summary>
         /// 登录
@@ -47,29 +50,22 @@ namespace Admin
             if (AdminName.AdmPwd.ToLower()!=Md5(dto.AdmPwd.Trim().ToLower())) //判断是否  跟数据库密码一直
             {
                 return new Toenk { ErSum = 2, ErSuccess = "密码不正确" };
-
             }
             //Jwt  有；表头，签名，负载
             //1.表头Header：记录令牌类型，以及算法
             //2.签名: 防治Toenk信息被篡改，
             //3.负载就是对用户的信息进行声明  所有的用户信息都是放在负载里面的  他是json格式
-          
             //生成Token令牌
             IList<Claim> claims = new List<Claim>
             {
                 new Claim(JwtClaimTypes.Id, dto.AdmName)
             };
-
             //JWT密钥
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:key"]));
-
             //算法，签名证书  签名: 防治Toenk信息被篡改
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
             //过期时间
             DateTime expires = DateTime.UtcNow.AddHours(10);
-
-
             //Payload负载 负载就是对用户的信息进行声明  所有的用户信息都是放在负载里面的  他是json格式
             var token = new JwtSecurityToken(
                 issuer: configuration["JwtConfig:Issuer"], //发布者、颁发者
@@ -79,9 +75,7 @@ namespace Admin
                 expires: expires,   //过期时间
                 signingCredentials: cred
                 );
-
             var handler = new JwtSecurityTokenHandler();
-
             //生成令牌
             string jwt = handler.WriteToken(token);
             //成功后返回
@@ -104,7 +98,6 @@ namespace Admin
             {
                 return new Eroor { ErSum = 0, ErSuccess = "用户已存在" };
             }
-
             admin.AdmName = admin.AdmName.Trim().ToUpper(); //ToUpper 转化成大写
             admin.AdmPwd = Md5(admin.AdmPwd.Trim());
             admin.AddDateTimeA = DateTime.Now;
@@ -112,10 +105,25 @@ namespace Admin
             admin.LastLoginIPA = null;
             //进行添加
             administratorsInt.GetAdd(mapper.Map<Administrators>(admin));
-
             return new Eroor { ErSum = 1, ErSuccess = "注册成功" };
-   
     }
+
+        //public AdminQuery admin1 (Page page)
+        //{
+        //    var list = administratorsInt.GetQuery().AsQueryable();
+        //    //var list = ipagestratorsInt.GetQueryPage().AsQueryable();
+        //    var coun = list.Count();
+        //    var skip = (page.PIndex - 1) * page.PSizs;
+        //    var data = list.OrderBy(s => s.AdmID).Skip(skip).Take(page.PSizs).ToList();
+
+        //    AdminQuery p = new AdminQuery
+        //    {
+        //        PToTa = coun,
+        //        //QueryAdmin = data
+        //    };
+
+        //    return p;
+        //}
 
         /// <summary>
         /// MD5加密

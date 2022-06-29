@@ -24,6 +24,7 @@ namespace Rbac.MeunApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous] //特性 该特性用于标记在授权期间要跳过
         public List<MeunDTo> GetAll()
         {
             return ServicMeunRole.GetAll();
@@ -59,6 +60,16 @@ namespace Rbac.MeunApi.Controllers
             return ServicMeunRole.GetMeunUpdate(updDto);
         }
 
+        /// <summary>
+        /// 动态下拉框
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public List<Meun> GetMeunList()
+        {
+            return ServicMeunRole.GetMeunList();
+        }
 
     }
 }

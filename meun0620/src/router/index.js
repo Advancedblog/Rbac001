@@ -11,11 +11,11 @@ const routes = [
     component: HomeView
   },
   
-  {
-    path: '/Meunadd',
-    name: '菜单新增',
-    component: () => import(/* webpackChunkName: "about" */ '../views/MeunAdd.vue')
-  },
+  // {
+  //   path: '/Meunadd',
+  //   name: '菜单新增',
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/MeunAdd.vue')
+  // },
   {
     path: '/Meunaupd',
     name: '菜单编辑',
@@ -31,11 +31,19 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginRbac/Login.vue')
   },
   {
+    path: '/Reg',
+    name: '注册操作',
+    component: () => import(/* webpackChunkName: "about" */ '../views/LoginRbac/Regis.vue')
+  },
+  {
     path: '/hom',
     name: '导航',
     component: () => import(/* webpackChunkName: "about" */ '../views/RbacMeunView/RbacHome.vue'),
     children:[
       { path: '/about', component: () => import( '../views/AboutView.vue')},
+      {
+        path: '/Meunadd',component: () => import( '../views/MeunAdd.vue')
+      }
     ]
   }
 

@@ -14,6 +14,7 @@ namespace AutomappperConfig
         public Automappper()
         {
             CreateMap<RegisterDto, Administrators>().ReverseMap();
+            //CreateMap<AdminQuery, AdminQuery>().ReverseMap(); // ReverseMap  反转
         }
     }
 }

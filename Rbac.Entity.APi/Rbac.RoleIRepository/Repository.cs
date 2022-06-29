@@ -60,11 +60,16 @@ namespace Rbac.IRepository
         {
             return db.Set<TCURDDto>().ToList();
         }
+        /// <summary>
+        /// 支持分页查询
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public List<TCURDDto> GetQueryList(TCURDDto dto)
+        {
+            return db.Set<TCURDDto>().ToList();
+        }
 
-        //public virtual List<TCURDDto> GetQueryList(TCURDDto dto)
-        //{
-        //    var list = db.Set<TCURDDto>().Where(d);
-        //}
         /// <summary>
         /// 编辑功能
         /// </summary>

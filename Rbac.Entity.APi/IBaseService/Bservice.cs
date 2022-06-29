@@ -22,17 +22,27 @@ namespace IBaseService
             //类型是从源对象推断出来的
             return repository.GetAdd(mapper.Map<TCURDDto>(dto));
         }
-
+        //删除
         public bool GetDelete(int id)
         {
             return repository.GetDelete(id);
         }
-
+         //查询
         public List<TDto> GetQuery()
         {
             return mapper.Map<List<TDto>>(repository.GetQuery());
         }
+        /// <summary>
+        /// 支持分页
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        //public List<TCURDDto> GetQueryPage(TDto dto)
+        //{
+        //    return repository.GetQueryList<List<TCURDDto>>(mapper.Map<TCURDDto>(dto));
+        //}
 
+        //编辑
         public bool GetUpdate(TDto dto)
         {
             return repository.GetUpdate(mapper.Map<TCURDDto>(dto));

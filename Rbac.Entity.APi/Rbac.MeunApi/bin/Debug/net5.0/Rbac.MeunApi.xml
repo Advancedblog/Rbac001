@@ -50,6 +50,12 @@
             <param name="updDto"></param>
             <returns></returns>
         </member>
+        <member name="M:Rbac.MeunApi.Controllers.RbacServerController.GetMeunList">
+            <summary>
+            动态下拉框
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Rbac.MeunApi.Controllers.ServercurdController.GetRomre(System.Int32)">
             <summary>
             菜单 删除

@@ -9,22 +9,24 @@
       @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
+      :unique-opened='true'
       active-text-color="#ffd04b"  :router="true">
-
-      <el-submenu index="1">
-        <template slot="title" >
+      <el-submenu index="1" v-for="ie in FilMeun" :key="ie.mid">
+        <template slot="title">
           <i class="el-icon-location"></i>
-          <span>菜单管理</span>
+          <span>{{ ie.meunName }}</span>
         </template>
         <el-menu-item-group>
-          <template slot="title">菜单列表</template>
-          <el-menu-item index="about">权限列表</el-menu-item> 
-          <el-menu-item index="1-2">选项2</el-menu-item>
+          <el-menu-item v-for="item in Meun.filter(a=>a.meunFatherId==ie.mid)" :key="item.mid">
+          <el-menu-item :index="meunitem.meunLink"
+           v-for="meunitem in Meun.filter(w=>w.meunFatherId==item.mid)" 
+            :key="meunitem.mid">
+          <span>{{ meunitem.meunName }}</span>
+          </el-menu-item>
+            </el-menu-item> 
         </el-menu-item-group>
       </el-submenu>
-      
     </el-menu>
-
   </el-aside>
   <el-main>
      <router-view/>
@@ -34,18 +36,36 @@
 </template>
 <script>
   export default {
+    data(){
+      return{
+          Meun:[],
+      }
+    },
     methods: {
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      getMeunList(){
+         this.$http.get("https://localhost:44343/api/RbacServer/GetMeunList").then(res=>{
+          this.Meun = res.data;
+        })
+       }
+    },
+    created(){
+       this.getMeunList();
+    },
+    computed:{
+      FilMeun(){
+        //  return this.Meun.filter(s=>s.meunFatherId==0)
+         return this.Meun.filter(t=>t.meunFatherId==0);
       }
     }
+   
   }
 </script>
-
-
 
 <style>
   .el-header, .el-footer {

@@ -24,6 +24,6 @@ namespace Admin
         /// <param name="dto"></param>
         /// <returns></returns>
         Toenk GetLogin(AdminDto dto);
-
+        //AdminQuery admin1(Page page);
     }
 }

@@ -52,5 +52,16 @@ namespace Rbac.MeunApi.Controllers
             return sum;
         }
 
+        /// <summary>
+        /// 管理 查询
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        //[HttpGet]
+        //public AdminQuery admin1([FromQuery] Page page)
+        //{
+        //    return login.admin1(page);
+        //}
+
     }
 }

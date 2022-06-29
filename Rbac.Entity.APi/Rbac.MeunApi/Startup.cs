@@ -1,4 +1,5 @@
 ﻿using Admin;
+using Admin.Login.pagestratorsIntInterfaceFile;
 using AutomappperConfig;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -110,6 +111,7 @@ namespace Rbac.MeunApi
             services.AddScoped<Iservic2, servic2>();
             services.AddScoped<IMIservic, MIservic>();
             services.AddScoped<IAdministratorsIntInterface, AdministratorsIntInterface>();
+            //services.AddScoped<IpagestratorsIntInterface, pagestratorsIntInterface>();
             services.AddScoped<ILoginService, LoginService>();
         }
 
@@ -123,8 +125,8 @@ namespace Rbac.MeunApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rbac.MeunApi v1"));
             }
             //使用跨域策略
-            app.UseCors("Cors");
-
+            //app.UseCors("Cors");
+            app.UseCors(s => s.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod()); //简便跨域 没有权威
             app.UseHttpsRedirection();
 
             app.UseRouting();
