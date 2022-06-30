@@ -111,7 +111,7 @@ namespace Rbac.MeunApi
             services.AddScoped<Iservic2, servic2>();
             services.AddScoped<IMIservic, MIservic>();
             services.AddScoped<IAdministratorsIntInterface, AdministratorsIntInterface>();
-            //services.AddScoped<IpagestratorsIntInterface, pagestratorsIntInterface>();
+            services.AddScoped<IpagestratorsIntInterface, pagestratorsIntInterface>();
             services.AddScoped<ILoginService, LoginService>();
         }
 

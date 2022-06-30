@@ -2,6 +2,7 @@
 using Admin.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -57,11 +58,23 @@ namespace Rbac.MeunApi.Controllers
         /// </summary>
         /// <param name="page"></param>
         /// <returns></returns>
-        //[HttpGet]
-        //public AdminQuery admin1([FromQuery] Page page)
-        //{
-        //    return login.admin1(page);
-        //}
+        [HttpGet]
+        public AdminQuery admin1([FromQuery]Page page)
+        {
+            return login.admin1(page);
+        }
+
+        /// <summary>
+        /// 分页 管理员查询
+        /// </summary>
+        /// <param name="PIndex"></param>
+        /// <param name="PSizs"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult GetPage([FromQuery] int PIndex = 1, int PSizs = 2)
+        {
+            return Ok(login.GetPage(PIndex,PSizs));
+        }
 
     }
 }

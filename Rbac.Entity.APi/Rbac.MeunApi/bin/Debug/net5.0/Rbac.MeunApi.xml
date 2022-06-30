@@ -24,6 +24,21 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Rbac.MeunApi.Controllers.LoginServerController.admin1(Admin.Dto.Page)">
+            <summary>
+            管理 查询
+            </summary>
+            <param name="page"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Rbac.MeunApi.Controllers.LoginServerController.GetPage(System.Int32,System.Int32)">
+            <summary>
+            分页 管理员查询
+            </summary>
+            <param name="PIndex"></param>
+            <param name="PSizs"></param>
+            <returns></returns>
+        </member>
         <member name="M:Rbac.MeunApi.Controllers.RbacServerController.GetAll">
             <summary>
             菜单查询
