@@ -91,6 +91,7 @@ export default {
                 debugger;
                 localStorage.setItem("tok", infor.tok); //获取领牌秘钥
                 this.$router.push("/hom");
+                window.sessionStorage.setItem("admName","admName");
               }
             });
         } else {

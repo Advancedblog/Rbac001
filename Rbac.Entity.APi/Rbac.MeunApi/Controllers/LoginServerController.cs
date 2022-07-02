@@ -71,7 +71,7 @@ namespace Rbac.MeunApi.Controllers
         /// <param name="PSizs"></param>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetPage([FromQuery] int PIndex = 1, int PSizs = 2)
+        public IActionResult GetPage([FromQuery] int PIndex = 0, int PSizs = 0)
         {
             return Ok(login.GetPage(PIndex,PSizs));
         }

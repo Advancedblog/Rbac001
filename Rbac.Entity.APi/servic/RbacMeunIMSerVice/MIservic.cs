@@ -45,46 +45,11 @@ namespace Rbac.servic
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool GetRomre(int id)
+        public int GetRomre(int id)
         {
-
-            int arrid=0;
-            bool ISbk = false;
-            var del = dbContext.Meun.FirstOrDefault(s=>s.Mid==id);
-            if (del!=null)
-            {
-                var listdel = dbContext.Meun.Where(s=>s.MeunFatherId== del.Mid);
-
-                if (listdel!=null)
-                {
-                    foreach (var item in listdel)
-                    {
-                         arrid = item.MeunFatherId;
-                    }
-                   var dd = dbContext.Meun.Where(s=>s.MeunFatherId==arrid).FirstOrDefault();
-                    if (dd.MeunIsck==false)
-                    {
-                        //dbContext.RemoveRange(dd);
-                        Meun a = new Meun();
-                        a.MeunIsck = !a.MeunIsck;
-                        del.MeunIsck = !del.MeunIsck;
-                        return dbContext.SaveChanges() > 0;
-                    }
-                    else
-                    {
-                        del.MeunIsck = !del.MeunIsck;
-                        return dbContext.SaveChanges() > 0;
-                    }
-                }
-                else
-                {
-                    return ISbk;
-                }
-            }
-            return ISbk;
+            var list = dbContext.Meun.Find(id);
+            dbContext.Meun.Remove(list);
+            return dbContext.SaveChanges();
         }
-
-
-
     }
 }

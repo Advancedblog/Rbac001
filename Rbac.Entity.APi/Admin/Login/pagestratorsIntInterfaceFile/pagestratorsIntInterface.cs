@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace Admin.Login.pagestratorsIntInterfaceFile  
 {
-    public class pagestratorsIntInterface /*: Bservice<Administrators, AdminQuery>, IpagestratorsIntInterface*/
+    public class pagestratorsIntInterface : Repository<AdminQuery, int>, IpagestratorsIntInterface
     {
-        //private readonly MyDbContext myDb;
+        private readonly MyDbContext myDb;
 
-        //public pagestratorsIntInterface( MyDbContext myDb)
-        //{
-        //    this.myDb = myDb;
-        //}
+        public pagestratorsIntInterface(MyDbContext myDb)
+        {
+            this.myDb = myDb;
+        }
     }
 }

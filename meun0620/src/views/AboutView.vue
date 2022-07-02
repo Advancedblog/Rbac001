@@ -24,12 +24,16 @@
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
+          <el-button
+            round
+            size="mini"
+            @click="handleEdit(scope.$index, scope.row)"
             >编辑</el-button
           >
           <el-button
             size="mini"
             type="danger"
+            round
             @click="GetIsckROmer(scope.$index, scope.row)"
             >删除</el-button
           >
@@ -99,12 +103,17 @@ export default {
       })
         .then(() => {
           this.$http
-            .delete("https://localhost:44343/api/Servercurd", {
-              params: { id: row.mid },
-            })
+            .delete("https://localhost:44343/api/Servercurd", { params: {id:row.mid} })
             .then((m) => {
-              this.$message.success("删除成功");
-              this.getShow();
+              if (m.data > 0) {
+                this.$message.success("删除成功");
+                this.getShow();
+              } else if (m.data == 500) {
+                this.$message.error("此信息有子级，请删除子级");
+                return;
+              } else {
+                this.$message.error("删除失败");
+              }
             });
         })
         .catch(() => {

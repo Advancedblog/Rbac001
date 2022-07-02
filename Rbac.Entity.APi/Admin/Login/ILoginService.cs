@@ -24,6 +24,7 @@ namespace Admin
         /// <param name="dto"></param>
         /// <returns></returns>
         Toenk GetLogin(AdminDto dto);
-        //AdminQuery admin1(Page page);
+        AdminQuery admin1(Page page);
+        public Tuple<List<AdminQuery>, int> GetPage(int PIndex = 1, int PSizs = 2);
     }
 }

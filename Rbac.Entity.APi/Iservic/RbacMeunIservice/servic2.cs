@@ -116,5 +116,38 @@ namespace Rbac.Iservic
         {
           return  iservic.GetAll().ToList();
         }
+
+       public int GetRomre(int id)
+        {
+            var list = iservic.GetAll();
+            var isck = 500;
+            var Query = list.Where(s => s.Mid == id).Select(s => new MeunDTo
+            {
+                Mid = s.Mid,
+                MeunIsck = s.MeunIsck,
+                MeunName = s.MeunName,
+                MeunLink = s.MeunLink,
+                MeunFatherId = s.MeunFatherId,
+                children = list.Where(t => t.MeunFatherId == id).Select(t => new MeunDTo
+                {
+                    Mid = s.Mid,
+                    MeunIsck = s.MeunIsck,
+                    MeunName = s.MeunName,
+                    MeunLink = s.MeunLink,
+                    MeunFatherId = s.MeunFatherId
+                }).ToList()
+            }).FirstOrDefault();
+
+            if (Query.children.Count>0)
+            {
+                return isck;
+            }
+            else
+            {
+                return iservic.GetRomre(id); //传到IMIservic 层
+            }
+
+        }
+
     }
 }

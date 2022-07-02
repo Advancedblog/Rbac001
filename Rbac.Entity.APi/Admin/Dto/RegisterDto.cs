@@ -10,7 +10,7 @@ namespace Admin.Dto
     /// <summary>
     /// 注册 
     /// </summary>
-    public class RegisterDto
+    public class RegisterDto 
     {
         public int AdmID { get; set; }
         public string AdmName { get; set; } //管理账号

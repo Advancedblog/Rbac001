@@ -8,7 +8,7 @@ namespace Rbac.servic
     {
         List<Meun> GetAll();
 
-        bool GetRomre(int id);
+        int GetRomre(int id);
 
         bool GetMeunPut(Meun upd);
 

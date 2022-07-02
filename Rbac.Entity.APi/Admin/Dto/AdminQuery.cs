@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Admin.Dto
 {
-    public  class AdminQuery
+    public  class AdminQuery : RegisterDto
     {
         public int PToTa { get; set; }
-        public List<RegisterDto> QueryAdmin { get; set; }
-
-       
+        public List<AdminQuery> admins { get; set; }
     }
 }

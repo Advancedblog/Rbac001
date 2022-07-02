@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="ss">
         <el-container>
   <el-aside width="200px">
     <el-menu
@@ -68,25 +68,30 @@
 </script>
 
 <style>
+.el-submeun_title{
+},
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
     text-align: center;
-    line-height: 60px;
+    line-height: 20px;
   }
-  
+  .el-meun{
+        border-right: solid 0px #af1414;
+  }
   .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
+    background-color: #545c64;
+    color: rgb(193, 39, 39);
     text-align: center;
     line-height: 200px;
   }
   
   .el-main {
-    background-color: #E9EEF3;
-    color: #333;
+    background:repeating-linear-gradient(rgb(184, 25, 128),rgb(46, 155, 209),rgb(33, 35, 33),blue);
+    color: rgb(100, 26, 174);
     text-align: center;
     line-height: 160px;
+    padding:100px;
   }
   
   body > .el-container {

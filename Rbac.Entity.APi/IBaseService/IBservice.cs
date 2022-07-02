@@ -11,6 +11,6 @@ namespace IBaseService
         bool GetUpdate(TDto dto);
         bool GetDelete(int id);
         List<TDto> GetQuery();
-        //List<TCURDDto> GetQueryPage(TDto dto);
+        List<TCURDDto> GetQueryPage(TDto dto);
     }
 }

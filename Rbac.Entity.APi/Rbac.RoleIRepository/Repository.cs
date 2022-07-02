@@ -67,7 +67,7 @@ namespace Rbac.IRepository
         /// <returns></returns>
         public List<TCURDDto> GetQueryList(TCURDDto dto)
         {
-            return db.Set<TCURDDto>().ToList();
+            return (List<TCURDDto>)db.Set<List<TCURDDto>>().AsQueryable();
         }
 
         /// <summary>

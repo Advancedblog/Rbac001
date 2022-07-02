@@ -24,15 +24,15 @@ namespace Admin
         private readonly IAdministratorsIntInterface administratorsInt;
         private readonly IMapper mapper;
         private readonly IConfiguration configuration;
-        //private readonly IpagestratorsIntInterface ipagestratorsInt;
+       private readonly IpagestratorsIntInterface ipagestratorsInt;
 
-        public LoginService(IAdministratorsIntInterface administratorsInt, IMapper mapper, IConfiguration configuration/*, IpagestratorsIntInterface ipagestratorsInt*/)
+        public LoginService(IAdministratorsIntInterface administratorsInt, IMapper mapper, IConfiguration configuration, IpagestratorsIntInterface ipagestratorsInt)
             : base(administratorsInt, mapper)
         {
             this.administratorsInt = administratorsInt;
             this.mapper = mapper;
             this.configuration = configuration;
-            //this.ipagestratorsInt = ipagestratorsInt;
+            this.ipagestratorsInt = ipagestratorsInt;
         }
         /// <summary>
         /// 登录
@@ -107,23 +107,35 @@ namespace Admin
             administratorsInt.GetAdd(mapper.Map<Administrators>(admin));
             return new Eroor { ErSum = 1, ErSuccess = "注册成功" };
     }
-
-        //public AdminQuery admin1 (Page page)
-        //{
-        //    var list = administratorsInt.GetQuery().AsQueryable();
-        //    //var list = ipagestratorsInt.GetQueryPage().AsQueryable();
-        //    var coun = list.Count();
-        //    var skip = (page.PIndex - 1) * page.PSizs;
-        //    var data = list.OrderBy(s => s.AdmID).Skip(skip).Take(page.PSizs).ToList();
-
-        //    AdminQuery p = new AdminQuery
-        //    {
-        //        PToTa = coun,
-        //        //QueryAdmin = data
-        //    };
-
-        //    return p;
-        //}
+        /// <summary>
+        /// 管理员查询2  “分页” 多一个对象  ？？？？？？？？
+        /// </summary>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public AdminQuery admin1(Page page)
+        {
+            var list = administratorsInt.GetQuery().AsQueryable();
+            //var list = ipagestratorsInt.GetQueryPage(page).AsQueryable();
+            var coun = list.Count();
+            var list1 = list.OrderBy(s => s.AdmID).Skip((page.PIndex - 1) * page.PSizs).Take(page.PSizs);
+            var list2 = mapper.Map<List<AdminQuery>>(list1); //类型转换
+            return new AdminQuery { PToTa = coun,admins = list2};
+        }
+        /// <summary>
+        ///  管理员 1 "分页"
+        /// </summary>
+        /// <param name="PIndex"></param>
+        /// <param name="PSizs"></param>
+        /// <returns></returns>
+        public Tuple<List<AdminQuery>,int> GetPage(int PIndex = 0,int PSizs = 0)
+        {
+            var list = administratorsInt.GetQuery().AsQueryable(); //查询全部数据
+            var count = administratorsInt.GetQuery().Count(); //获取总数据
+            var skip = (PIndex - 1) * PSizs; // 分页 计算公式
+            var data = list.OrderBy(s => s.AdmID).Skip(skip).Take(PSizs).ToList(); //实现分页
+            var list1 = mapper.Map<List<AdminQuery>>(data);
+            return new Tuple<List<AdminQuery>,int>(list1, count);
+        }
 
         /// <summary>
         /// MD5加密

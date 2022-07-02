@@ -13,5 +13,6 @@ namespace Rbac.Iservic
         bool GetMeunAdd(MeunAddDto meun);
         bool GetMeunUpdate(MeunAddDto updDto);
          List<Meun> GetMeunList();
+        int GetRomre(int id);
     }
 }   

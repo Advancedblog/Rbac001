@@ -1,6 +1,17 @@
 <template>
   <div>
     <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>管理员注册</span>
+         <el-button
+         style="float: left; padding: 3px 0"
+            type="primary"
+            icon="el-icon-box"
+            round
+            @click="RegEmilPhone"
+            >邮箱注册</el-button
+          >
+      </div>
       <div >
         <el-form
           :model="ruleForm"
@@ -9,13 +20,7 @@
           label-width="100px"
           class="demo-ruleForm"
         >
-          <el-button
-            type="primary"
-            icon="el-icon-box"
-            round
-            @click="RegEmilPhone"
-            >邮箱注册</el-button
-          >
+         
           <el-form-item
             v-if="ruleForm.isLos == false"
             label="账号"

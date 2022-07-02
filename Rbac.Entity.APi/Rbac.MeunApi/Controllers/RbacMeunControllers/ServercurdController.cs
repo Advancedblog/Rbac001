@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rbac.Entity;
+using Rbac.Iservic;
 using Rbac.servic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,11 +11,11 @@ namespace Rbac.MeunApi.Controllers
     [ApiController]
     public class ServercurdController : ControllerBase
     {
-        private readonly IMIservic mIservic;
+        private readonly Iservic2  iservic;
 
-        public ServercurdController(IMIservic mIservic)
+        public ServercurdController(Iservic2 iservica)
         {
-            this.mIservic = mIservic;
+            this.iservic = iservica;
         }
 
         /// <summary>
@@ -22,9 +24,9 @@ namespace Rbac.MeunApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
-        public bool GetRomre(int id)
+        public int GetRomre(int id)
         {
-            return mIservic.GetRomre(id);
+            return iservic.GetRomre(id);
         }
        
     }

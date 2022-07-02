@@ -37,10 +37,10 @@ namespace IBaseService
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        //public List<TCURDDto> GetQueryPage(TDto dto)
-        //{
-        //    return repository.GetQueryList<List<TCURDDto>>(mapper.Map<TCURDDto>(dto));
-        //}
+        public List<TCURDDto> GetQueryPage(TDto dto)
+        {
+            return repository.GetQueryList(mapper.Map<TCURDDto>(dto));
+        }
 
         //编辑
         public bool GetUpdate(TDto dto)
