@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: '/Reg',
-    name: '注册操作',
+    name: '注册',
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginRbac/Regis.vue')
   },
   {
@@ -61,7 +61,7 @@ const router = new VueRouter({
 //路由守卫
 router.beforeEach((t, f, n) => {
   let LogName = sessionStorage.getItem("admName") ?? ""
-  if (t.name !== "登录" && LogName == "") {
+  if (t.name !== "登录"&&t.name!=="注册" && LogName == "") {
     n({ name: "登录" })
   }
   else {

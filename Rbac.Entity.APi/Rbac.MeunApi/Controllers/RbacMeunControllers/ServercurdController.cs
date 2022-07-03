@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Admin.CURD;
+using Microsoft.AspNetCore.Mvc;
 using Rbac.Entity;
 using Rbac.Iservic;
 using Rbac.servic;
@@ -7,15 +8,17 @@ using Rbac.servic;
 
 namespace Rbac.MeunApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ServercurdController : ControllerBase
     {
         private readonly Iservic2  iservic;
+        private readonly IAdminCURD admin;
 
-        public ServercurdController(Iservic2 iservica)
+        public ServercurdController(Iservic2 iservica, IAdminCURD admin)
         {
             this.iservic = iservica;
+            this.admin = admin;
         }
 
         /// <summary>
@@ -28,6 +31,17 @@ namespace Rbac.MeunApi.Controllers
         {
             return iservic.GetRomre(id);
         }
-       
+        /// <summary>
+        /// 管理员 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public bool AdminDelete(int id)
+        {
+            return admin.AdminDelete(id);
+        }
+
+
     }
 }

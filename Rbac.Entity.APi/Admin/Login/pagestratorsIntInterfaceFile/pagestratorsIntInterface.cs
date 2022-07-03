@@ -12,13 +12,8 @@ using System.Threading.Tasks;
 
 namespace Admin.Login.pagestratorsIntInterfaceFile  
 {
-    public class pagestratorsIntInterface : Repository<AdminQuery, int>, IpagestratorsIntInterface
+    public class pagestratorsIntInterface : Repository<RegisterDto, int>, IpagestratorsIntInterface
     {
-        private readonly MyDbContext myDb;
-
-        public pagestratorsIntInterface(MyDbContext myDb)
-        {
-            this.myDb = myDb;
-        }
+       
     }
 }

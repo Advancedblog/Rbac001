@@ -1,6 +1,5 @@
 <template>
     <dir>
-
 <el-card class="box-card">
   <div  class="text item">
    <el-tree
@@ -24,7 +23,7 @@
       return {
         data: [],
         defaultProps: {
-          value: 'children',
+          value: 'value',
           label: 'label'
         }
       };

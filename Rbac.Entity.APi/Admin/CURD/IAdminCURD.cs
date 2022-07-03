@@ -1,5 +1,4 @@
 ﻿using Admin.Dto;
-using IBaseService;
 using Rbac.Entity;
 using Rbac.IRepository;
 using System;
@@ -8,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Admin.Login.pagestratorsIntInterfaceFile
+namespace Admin.CURD
 {
-    public interface IpagestratorsIntInterface : IRepository<RegisterDto, int>
+    public interface IAdminCURD : IRepository<RegisterDto, int>
     {
+        bool AdminDelete(int id);
     }
 }

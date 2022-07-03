@@ -10,6 +10,5 @@ namespace Admin.Dto
     {
         public int ErSum { get; set; }
         public string ErSuccess { get; set; }
-   
     }
 }

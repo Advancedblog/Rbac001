@@ -1,4 +1,5 @@
 ﻿using Admin;
+using Admin.CURD;
 using Admin.Login.pagestratorsIntInterfaceFile;
 using AutomappperConfig;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -33,7 +34,8 @@ namespace Rbac.MeunApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //services.AddAutoMapper(Assembly.Load("AutomappperConfig")); //注册 AutoMapper 
+            services.AddAutoMapper(typeof(AutomappperConfig.Automappper).Assembly);
             services.AddControllers();  
             services.AddSwaggerGen(c =>
             {
@@ -107,12 +109,12 @@ namespace Rbac.MeunApi
         );
             #endregion
             //注册
-            services.AddAutoMapper(Assembly.Load("AutomappperConfig")); //注册 AutoMapper 
             services.AddScoped<Iservic2, servic2>();
             services.AddScoped<IMIservic, MIservic>();
             services.AddScoped<IAdministratorsIntInterface, AdministratorsIntInterface>();
             services.AddScoped<IpagestratorsIntInterface, pagestratorsIntInterface>();
             services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IAdminCURD, AdminCURD>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

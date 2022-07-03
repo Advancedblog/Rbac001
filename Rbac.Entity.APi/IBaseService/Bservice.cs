@@ -32,11 +32,6 @@ namespace IBaseService
         {
             return mapper.Map<List<TDto>>(repository.GetQuery());
         }
-        /// <summary>
-        /// 支持分页
-        /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         public List<TCURDDto> GetQueryPage(TDto dto)
         {
             return repository.GetQueryList(mapper.Map<TCURDDto>(dto));

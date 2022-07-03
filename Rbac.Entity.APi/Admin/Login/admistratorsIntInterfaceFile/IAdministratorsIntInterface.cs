@@ -4,7 +4,7 @@ using System;
 
 namespace Admin
 {
-    public interface IAdministratorsIntInterface : IRepository<Administrators,int>
+    public interface IAdministratorsIntInterface : IRepository<Administrators, int>
     {
     }
 }

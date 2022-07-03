@@ -24,15 +24,13 @@ namespace Admin
         private readonly IAdministratorsIntInterface administratorsInt;
         private readonly IMapper mapper;
         private readonly IConfiguration configuration;
-       private readonly IpagestratorsIntInterface ipagestratorsInt;
 
-        public LoginService(IAdministratorsIntInterface administratorsInt, IMapper mapper, IConfiguration configuration, IpagestratorsIntInterface ipagestratorsInt)
+        public LoginService(IAdministratorsIntInterface administratorsInt, IMapper mapper, IConfiguration configuration)
             : base(administratorsInt, mapper)
         {
             this.administratorsInt = administratorsInt;
             this.mapper = mapper;
             this.configuration = configuration;
-            this.ipagestratorsInt = ipagestratorsInt;
         }
         /// <summary>
         /// 登录
@@ -93,12 +91,14 @@ namespace Admin
         /// <returns></returns>
         public Eroor Register(RegisterDto admin)
         {
-            var RegisName = administratorsInt.GetKeyQuery(s => s.AdmName == admin.AdmName.Trim().ToLower());
+            var RegisName = administratorsInt.GetKeyQuery(s => s.AdmName == admin.AdmName.Trim().ToLower()&&s.AdmEmile==admin.AdmEmile.Trim().ToLower());
             if (RegisName!=null)
             {
-                return new Eroor { ErSum = 0, ErSuccess = "用户已存在" };
+                return new Eroor { ErSum = 0, ErSuccess = "此用户已存在,请登录" };
             }
-            admin.AdmName = admin.AdmName.Trim().ToUpper(); //ToUpper 转化成大写
+            
+            admin.AdmName = admin.AdmName.Trim().ToUpper(); //ToUpper 转化成大写  账号
+            admin.AdmEmile = admin.AdmEmile.Trim().ToUpper(); //ToUpper 转化成大写  邮箱账号
             admin.AdmPwd = Md5(admin.AdmPwd.Trim());
             admin.AddDateTimeA = DateTime.Now;
             admin.LastLoginDateTimeA = DateTime.Now;
@@ -115,14 +115,14 @@ namespace Admin
         public AdminQuery admin1(Page page)
         {
             var list = administratorsInt.GetQuery().AsQueryable();
-            //var list = ipagestratorsInt.GetQueryPage(page).AsQueryable();
+            
             var coun = list.Count();
             var list1 = list.OrderBy(s => s.AdmID).Skip((page.PIndex - 1) * page.PSizs).Take(page.PSizs);
             var list2 = mapper.Map<List<AdminQuery>>(list1); //类型转换
             return new AdminQuery { PToTa = coun,admins = list2};
         }
-        /// <summary>
-        ///  管理员 1 "分页"
+        /// <summary> 
+        ///  管理员 1 "分页" Tuple 可以操作多个类型
         /// </summary>
         /// <param name="PIndex"></param>
         /// <param name="PSizs"></param>

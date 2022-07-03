@@ -13,7 +13,7 @@ namespace AutomappperConfig
     {
         public Automappper()
         {
-            //CreateMap<RegisterDto, Administrators>().ReverseMap();
+            CreateMap<RegisterDto, Administrators>().ReverseMap();
             CreateMap<Administrators, AdminQuery>().ReverseMap(); // ReverseMap  反转
         }
     }

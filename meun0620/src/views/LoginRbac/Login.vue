@@ -3,24 +3,42 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span >系统管理</span>
+         <el-button
+          style="float: left; padding: 3px 0"
+          type="primary"
+          icon="el-icon-box"
+          round
+          @click="RegEmilPhone"
+          >邮箱注册</el-button
+        >
         <el-button style="float: right; padding: 3px 0" @click="Register" type="text"
           ><h4>注册</h4></el-button
         >
       </div>
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" >
-  <el-form-item label="账号：" prop="admName">
+  <el-form-item label="账号：" v-if="ruleForm.isLos == false" prop="admName">
     <el-input v-model="ruleForm.admName"></el-input>
   </el-form-item>
+  <el-form-item
+            v-show="ruleForm.isLos"
+            label="邮箱账号"
+            prop="admEmile"
+          >
+            <el-input
+              placeholder="请输入邮箱"
+              v-model="ruleForm.admEmile"
+            ></el-input>
+          </el-form-item>
   <el-form-item label="密码：" prop="admPwd">
     <el-input show-password v-model="ruleForm.admPwd"></el-input>
   </el-form-item>
-  <el-form-item v-if="ruleForm.admPwd.length>=6&&ruleForm.admName!=0" label="验证码:" prop="Verification">
+  <el-form-item v-if="ruleForm.admPwd.length>=6&&ruleForm.admName!=0||ruleForm.admPwd.length>=6&&ruleForm.admEmile!=0" label="验证码:" prop="Verification">
      <el-col :span="5">
     <el-input v-model="ruleForm.Verification"></el-input>
      </el-col>
   </el-form-item>
 
-  <el-form-item v-if="ruleForm.admPwd.length>=6&&ruleForm.admName!=0"  label="" prop="Verification2">
+  <el-form-item v-if="ruleForm.admPwd.length>=6&&ruleForm.admName!=0||ruleForm.admPwd.length>=6&&ruleForm.admEmile!=0"  label="" prop="Verification2">
 <el-col :span="5">
     <el-input disabled  style="color:red" v-model="ruleForm.Verification2"></el-input>
     <el-link type="primary" @click="GetRandom" icon="el-icon-refresh-left" circle></el-link>
@@ -44,6 +62,7 @@ export default {
         admPwd: "",
         Verification: "", //验证码
         Verification2: "", //这是获取数据库传过来的验证码
+        isLos: false,
       },
       rules: {
         admName: [
@@ -71,6 +90,9 @@ export default {
     };
   },
   methods: {
+     RegEmilPhone() {
+      this.ruleForm.isLos = !this.ruleForm.isLos;
+    },
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -91,7 +113,7 @@ export default {
                 debugger;
                 localStorage.setItem("tok", infor.tok); //获取领牌秘钥
                 this.$router.push("/hom");
-                window.sessionStorage.setItem("admName","admName");
+                window.sessionStorage.setItem("admName", "admName");
               }
             });
         } else {
@@ -100,8 +122,8 @@ export default {
         }
       });
     },
-    Register(){
-      this.$router.push("/Reg")
+    Register() {
+      this.$router.push("/Reg");
     },
     GetRandom() {
       this.$http

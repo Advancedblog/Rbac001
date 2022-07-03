@@ -26,7 +26,7 @@
             label="账号"
             prop="admName"
           >
-            <el-input placeholder="请输入手机号" v-model="ruleForm.admName"></el-input>
+            <el-input placeholder="请输入账号" v-model="ruleForm.admName"></el-input>
           </el-form-item>
           <el-form-item 
           v-show="ruleForm.isLos" 
@@ -59,15 +59,14 @@ export default {
         admName: "", //账号
         admPwd: "", //密码
         admEmile: "", //邮箱
-        addDateTimeA: "", //登录日期
-        lastLoginDateTimeA: "", //末次登录时间
+        // addDateTimeA: null, //登录日期 //加上时间字段报 400  原因：类型不能转换   解决方案：把类型转换成'后端'里的类型一致
+        // lastLoginDateTimeA: null, //末次登录时间
         lastLoginIPA: "", //上次登录
         isLos: false,
       },
       rules: {
         admName: [
-          { required: true, message: "请输入手机号", trigger: "blur" },
-          { min: 11, message: '请输入正确的11位手机格式', trigger: 'blur' }
+          { required: true, message: "请输入账号", trigger: "blur" },
         ],
         // admEmile: [
         //   { required: true, message: "请输入邮箱", trigger: "blur" },
@@ -87,8 +86,11 @@ export default {
         if (valid) {
           this.$http.post("https://localhost:44343/api/LoginServer/Register",this.ruleForm).then(res=>{
              let infor = res.data;
+             debugger
              if(infor.erSum > 0){
                 this.$message.success(infor.erSuccess);
+                this.$router.push("/log");
+                return
              }
              else{
                 this.$message.error(infor.erSuccess);

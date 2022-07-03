@@ -78,5 +78,12 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Rbac.MeunApi.Controllers.ServercurdController.AdminDelete(System.Int32)">
+            <summary>
+            管理员 删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
