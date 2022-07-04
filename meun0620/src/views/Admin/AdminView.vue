@@ -37,7 +37,7 @@
           <el-button
             size="mini"
             type="danger"
-            @click="handleJurisdictionDistribution(scope.$index, scope.row)"
+            @click="handleJurisdictionDistribution(scope.$index, scope.row.meunFatherId)"
             >权限分配</el-button>
           <el-button
             size="mini"
@@ -66,13 +66,11 @@
   title="提示"
   :visible.sync="dialogVisible"
   width="30%"
-  :before-close="handleClose">
-  
-  <peimterry  />
-
+  >
+  <peimterry ref="dialog" />
   <span slot="footer" class="dialog-footer">
     <el-button @click="dialogVisible = false">取 消</el-button>
-    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+    <el-button type="primary" @click="dialogVisiblAdd">确 定</el-button>
   </span>
 </el-dialog>
   </div>
@@ -94,9 +92,18 @@ export default {
         item2: 0,
       },
       moment,
+      MenuRoleId:{
+          meunFatherId:0,
+          menuId:[]
+        }
     };
   },
   methods: {
+    dialogVisiblAdd(){
+       this.MenuRoleId.menuId= this.$refs["dialog"].$refs["peimterry"].getCheckedNodes(true,true).map(m=>m.value);
+       console.log(this.meunFatherId);  
+      },
+
     GetAdminList() {
       this.$http
         .get("https://localhost:44343/api/LoginServer/GetPage", {
@@ -107,7 +114,8 @@ export default {
           this.page.item2 = res.data.item2;
         });
     },
-    handleJurisdictionDistribution(index, row){ //实现权限分配
+    handleJurisdictionDistribution(index, meunFatherId){ //实现权限分配
+      //this.MenuRole.meunFatherId = meunFatherId;
       this.dialogVisible = true;
     },
     GetDateTime(){

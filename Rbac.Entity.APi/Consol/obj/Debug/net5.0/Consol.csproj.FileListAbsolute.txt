@@ -1,0 +1,16 @@
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\bin\Debug\net5.0\Consol.exe
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\bin\Debug\net5.0\Consol.deps.json
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\bin\Debug\net5.0\Consol.runtimeconfig.json
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\bin\Debug\net5.0\Consol.runtimeconfig.dev.json
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\bin\Debug\net5.0\Consol.dll
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\bin\Debug\net5.0\Consol.pdb
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.csproj.AssemblyReference.cache
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.GeneratedMSBuildEditorConfig.editorconfig
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.AssemblyInfoInputs.cache
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.AssemblyInfo.cs
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.csproj.CoreCompileInputs.cache
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.dll
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\refint\Consol.dll
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.pdb
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\Consol.genruntimeconfig.cache
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Consol\obj\Debug\net5.0\ref\Consol.dll

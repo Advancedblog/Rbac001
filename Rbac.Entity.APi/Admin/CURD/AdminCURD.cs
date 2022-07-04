@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Admin.CURD
 {
-    public class AdminCURD : Repository<RegisterDto, int>, IAdminCURD
+    public class AdminCURD : Repository<AdimRoleDto, int>, IAdminCURD
     {
         private readonly IpagestratorsIntInterface ipagestratorsInt;
         private readonly IMapper mapper;
@@ -26,6 +26,13 @@ namespace Admin.CURD
         {
            int a = Convert.ToInt32( mapper.Map<RegisterDto>(id));
             return ipagestratorsInt.GetDelete(a);
+        }
+
+        public  int GetCheckAdd(AdimRoleDto dtos)
+        {
+            var isk = dtos.menuId.Select(s => new MeunRileType { Mid = s, RoleID =Convert.ToInt32( dtos.menuId) });
+
+            return ipagestratorsInt.GetCheckAdd(mapper.Map<List<AdimRoleDto>>(dtos));
         }
     }
 }

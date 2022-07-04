@@ -1,0 +1,12 @@
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\bin\Debug\net5.0\Deletgete.deps.json
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\bin\Debug\net5.0\Deletgete.dll
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\bin\Debug\net5.0\Deletgete.pdb
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\Deletgete.csproj.AssemblyReference.cache
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\Deletgete.GeneratedMSBuildEditorConfig.editorconfig
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\Deletgete.AssemblyInfoInputs.cache
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\Deletgete.AssemblyInfo.cs
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\Deletgete.csproj.CoreCompileInputs.cache
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\Deletgete.dll
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\refint\Deletgete.dll
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\Deletgete.pdb
+F:\专业项目\转高六项目文件\项目文件\备用代码\Rbac.Entity.APi\Deletgete\obj\Debug\net5.0\ref\Deletgete.dll

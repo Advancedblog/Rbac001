@@ -9,7 +9,7 @@
           icon="el-icon-box"
           round
           @click="RegEmilPhone"
-          >邮箱注册</el-button
+          >邮箱登录</el-button
         >
         <el-button style="float: right; padding: 3px 0" @click="Register" type="text"
           ><h4>注册</h4></el-button

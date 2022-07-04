@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Admin.Login.pagestratorsIntInterfaceFile  
 {
-    public class pagestratorsIntInterface : Repository<RegisterDto, int>, IpagestratorsIntInterface
+    public class pagestratorsIntInterface : Repository<AdimRoleDto, int>, IpagestratorsIntInterface
     {
        
     }

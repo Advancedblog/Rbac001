@@ -30,6 +30,17 @@ namespace Rbac.IRepository
 
         }
         /// <summary>
+        ///  批量添加
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        public virtual int GetCheckAdd(List<TCURDDto> dto)
+        {
+            db.Set<List<TCURDDto>>().AddRange(dto);
+            return db.SaveChanges();
+        }
+
+        /// <summary>
         /// 单条删除
         /// </summary>
         /// <param name="id"></param>

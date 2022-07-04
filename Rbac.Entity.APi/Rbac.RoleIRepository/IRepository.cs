@@ -14,6 +14,6 @@ namespace Rbac.IRepository
         List<TCURDDto> GetQuery();
         TCURDDto GetKeyQuery(Expression<Func<TCURDDto, bool>> predicate);
         List<TCURDDto> GetQueryList(TCURDDto dto);
-
+        int GetCheckAdd(List<TCURDDto> dto);
     }
 }

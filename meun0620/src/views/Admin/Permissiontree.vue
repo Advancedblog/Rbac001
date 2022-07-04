@@ -3,6 +3,7 @@
 <el-card class="box-card">
   <div  class="text item">
    <el-tree
+  ref="peimterry"
   :data="data"
   show-checkbox
   node-key="value"
@@ -10,15 +11,16 @@
   :default-checked-keys="[5]"
   :props="defaultProps">
 </el-tree>
+  <el-button @click="data1">查看信息</el-button>
   </div>
 </el-card>
-
     </dir>
 </template>
 
 
 <script>
   export default {
+   
     data() {
       return {
         data: [],
@@ -29,6 +31,10 @@
       };
     },
     methods: {
+      data1(){
+         var list = this.$refs["peimterry"].getCheckedNodes(true,true).map(m => m.value); //获取选中的Id 
+         console.log(list);
+      },
       handleChange(value) {
       this.$http
         .get("https://localhost:44343/api/RbacServer/AddDtos")

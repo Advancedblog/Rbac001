@@ -1,0 +1,10 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\奥利给的C盘\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\奥利给的C盘\\.nuget\\packages",
+      "D:\\3\\NuGetPackages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ]
+  }
+}

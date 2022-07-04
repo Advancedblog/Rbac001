@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/log">登录</router-link>
+      <!-- <router-link to="/log">登录</router-link> -->
     </nav>
     <router-view/>
   </div>

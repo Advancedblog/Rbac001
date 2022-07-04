@@ -1,4 +1,5 @@
 ﻿using Admin.CURD;
+using Admin.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Rbac.Entity;
 using Rbac.Iservic;
@@ -40,6 +41,17 @@ namespace Rbac.MeunApi.Controllers
         public bool AdminDelete(int id)
         {
             return admin.AdminDelete(id);
+        }
+
+        /// <summary>
+        /// 权限添加
+        /// </summary>
+        /// <param name="dtos"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public  int GetCheckAdd(AdimRoleDto dtos)
+        {
+            return admin.GetCheckAdd(dtos);
         }
 
 

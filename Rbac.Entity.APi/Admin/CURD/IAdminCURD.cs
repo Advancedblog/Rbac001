@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace Admin.CURD
 {
-    public interface IAdminCURD : IRepository<RegisterDto, int>
+    public interface IAdminCURD : IRepository<AdimRoleDto, int>
     {
         bool AdminDelete(int id);
+        int GetCheckAdd(AdimRoleDto dtos);
     }
 }

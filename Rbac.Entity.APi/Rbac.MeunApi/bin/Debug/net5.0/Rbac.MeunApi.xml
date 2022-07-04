@@ -85,5 +85,12 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Rbac.MeunApi.Controllers.ServercurdController.GetCheckAdd(Admin.Dto.AdimRoleDto)">
+            <summary>
+            权限添加
+            </summary>
+            <param name="dtos"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
