@@ -27,7 +27,11 @@ namespace Admin.CURD
            int a = Convert.ToInt32( mapper.Map<RegisterDto>(id));
             return ipagestratorsInt.GetDelete(a);
         }
-
+        /// <summary>
+        /// ？？？？？？、
+        /// </summary>
+        /// <param name="dtos"></param>
+        /// <returns></returns>
         public  int GetCheckAdd(AdimRoleDto dtos)
         {
             var isk = dtos.menuId.Select(s => new MeunRileType { Mid = s, RoleID =Convert.ToInt32( dtos.menuId) });
