@@ -76,5 +76,26 @@ namespace Rbac.MeunApi.Controllers
             return Ok(login.GetPage(PIndex,PSizs));
         }
 
+        /// <summary>
+        /// 管理员删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public  bool GetDelete(int id)
+        {
+            return login.GetDelete(id);
+        }
+        /// <summary>
+        /// 分配权限
+        /// </summary>
+        /// <param name="adimRoleDto"></param>
+        /// <returns></returns>
+        //[HttpPost]
+        //public int Assignpermissions(AdimRoleDto adimRoleDto)
+        //{
+        //    return login.Assignpermissions(adimRoleDto);
+        //}
+
     }
 }

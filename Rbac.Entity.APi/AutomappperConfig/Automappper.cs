@@ -15,7 +15,8 @@ namespace AutomappperConfig
         {
             CreateMap<RegisterDto, Administrators>().ReverseMap();
             CreateMap<Administrators, AdminQuery>().ReverseMap(); // ReverseMap  反转
-            CreateMap<AdimRoleDto, MeunRileType>().ReverseMap(); // ReverseMap  反转
+            //CreateMap<AdimRoleDto, MeunRileType>().ReverseMap(); // ReverseMap  反转
+            //CreateMap<AdimRoleDto, MeunRileType>().ReverseMap(); // ReverseMap  反转
         }
     }
 }

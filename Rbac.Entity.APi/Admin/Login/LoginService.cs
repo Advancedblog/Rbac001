@@ -6,6 +6,7 @@ using IBaseService;
 using IdentityModel;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Rbac.Entity;
 using Rbac.IRepository;
 using System;
@@ -74,6 +75,9 @@ namespace Admin
                 signingCredentials: cred
                 );
             var handler = new JwtSecurityTokenHandler();
+
+       
+
             //生成令牌
             string jwt = handler.WriteToken(token);
             //成功后返回
@@ -136,6 +140,20 @@ namespace Admin
             var list1 = mapper.Map<List<AdminQuery>>(data);
             return new Tuple<List<AdminQuery>,int>(list1, count);
         }
+        /// <summary>
+        /// 删除管理员
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public new bool GetDelete(int id)
+        {
+            return administratorsInt.GetDelete(id);
+        } 
+        //public int Assignpermissions (AdimRoleDto adimRoleDto)
+        //{
+        //    var ids = adimRoleDto.menuId.Select(m => new MeunRileType { Mid = m, RoleID = adimRoleDto.meunFatherId }).ToList();
+        //    return 1; /*administratorsInt.GetCheckAdd(ids);*/
+        //} 
 
         /// <summary>
         /// MD5加密

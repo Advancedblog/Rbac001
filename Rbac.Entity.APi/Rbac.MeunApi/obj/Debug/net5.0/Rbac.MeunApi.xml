@@ -39,6 +39,13 @@
             <param name="PSizs"></param>
             <returns></returns>
         </member>
+        <member name="M:Rbac.MeunApi.Controllers.LoginServerController.GetDelete(System.Int32)">
+            <summary>
+            管理员删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:Rbac.MeunApi.Controllers.RbacServerController.GetAll">
             <summary>
             菜单查询

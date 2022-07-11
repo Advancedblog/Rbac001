@@ -22,6 +22,8 @@ namespace IBaseService
             //类型是从源对象推断出来的
             return repository.GetAdd(mapper.Map<TCURDDto>(dto));
         }
+
+
         //删除
         public bool GetDelete(int id)
         {

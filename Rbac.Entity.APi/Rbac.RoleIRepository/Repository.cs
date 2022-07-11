@@ -36,7 +36,7 @@ namespace Rbac.IRepository
         /// <returns></returns>
         public virtual int GetCheckAdd(List<TCURDDto> dto)
         {
-            db.Set<List<TCURDDto>>().AddRange(dto);
+            db.Set<TCURDDto>().AddRange(dto);
             return db.SaveChanges();
         }
 
@@ -49,10 +49,15 @@ namespace Rbac.IRepository
         public virtual bool GetDelete(TKey id)
         {
             var Romove = db.Set<TCURDDto>().Find(id);
-
-            db.Remove(Romove);
-
-            return db.SaveChanges() > 0;
+            if (Romove==null)
+            {
+                return false;
+            }
+            else
+            {
+                db.Remove(Romove);
+                return db.SaveChanges() > 0;
+            }
         }
         /// <summary>
         /// 条件查询

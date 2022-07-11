@@ -125,7 +125,31 @@ export default {
       console.log(index, row);
     },
     handleDelete(index, row) { //删除
-      console.log(index, row);
+
+    this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+           this.$http.delete("https://localhost:44343/api/LoginServer/GetDelete",{params:{id:row.admID}}).then(res=>{
+         if(res.data>0){
+          this.$message.success("删除成功");
+          this.GetAdminList();
+          return 
+         }
+         else{
+          this.$message.error("删除失败")
+         }
+      })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
+
+
+     
     },
     handleSizeChange(val) {
       this.page.PIndex = 1;

@@ -26,5 +26,6 @@ namespace Admin
         Toenk GetLogin(AdminDto dto);
         AdminQuery admin1(Page page);
         public Tuple<List<AdminQuery>, int> GetPage(int PIndex = 1, int PSizs = 2);
+        //public int Assignpermissions(AdimRoleDto adimRoleDto);
     }
 }
